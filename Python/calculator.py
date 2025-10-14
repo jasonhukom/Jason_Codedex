@@ -17,7 +17,7 @@ def main():
     """)
 
     answer = question()
-    print("\nThe area is %s" % (answer))
+    print("\nThe area is %s" % check_int_float(answer))
 
 def triangle():
     while True:
@@ -33,7 +33,7 @@ def rectangle():
     while True:
         try:
             l = float(input("Length: "))
-            w = float(input("Weight: "))
+            w = float(input("Width: "))
         except ValueError:
             pass
         else:
@@ -65,10 +65,10 @@ def question():
     while True:
         try:
             shape = int(input("Which shape: "))
+            print("\n")
         except ValueError:
             pass
         else:
-            print("\n")
             match shape:
                 case 1:
                     h, b = triangle()
