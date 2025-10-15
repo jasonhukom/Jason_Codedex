@@ -1,5 +1,4 @@
 #Counts like a calculator
-
 from math import pi
 
 def main():
@@ -58,10 +57,6 @@ def circle():
             return r
 
 def question():
-    lamtriangle = lambda h, b: (h * b) / 2
-    lamrectangle =  lambda l, w: l * w
-    lamsquare = lambda s: s ** 2
-    lamcircle = lambda r: pi * (r ** 2)
     while True:
         try:
             shape = int(input("Which shape: "))
@@ -69,25 +64,31 @@ def question():
         except ValueError:
             pass
         else:
-            match shape:
-                case 1:
-                    h, b = triangle()
-                    return lamtriangle(h, b)
-                case 2:
-                    l, w = rectangle()
-                    return lamrectangle(l, w)
-                case 3:
-                    s = square()
-                    return lamsquare(s)
-                case 4:
-                    r = circle()
-                    return lamcircle(r)
-                case 5:
-                    break
-                case _:
-                    pass
+            result = the_calculator(shape)
+            if result == None:
+                break
+            else:
+                return result
+
+def the_calculator(shape):
+    lamtriangle = lambda h, b: (h * b) / 2
+    lamrectangle =  lambda l, w: l * w
+    lamsquare = lambda s: s ** 2
+    lamcircle = lambda r: pi * (r ** 2)
+    match shape:
+        case 1:
+            h, b = triangle()
+            return lamtriangle(h, b)
+        case 2:
+            l, w = rectangle()
+            return lamrectangle(l, w)
+        case 3:
+            s = square()
+            return lamsquare(s)
+        case 4:
+            r = circle()
+            return lamcircle(r)
 
 def check_int_float(n):
     return int(n) if (n - int(n)) == 0 else n
 
-main()
