@@ -16,7 +16,10 @@ def main():
     """)
 
     answer = question()
-    print("\nThe area is %s" % check_int_float(answer))
+    if answer == None:
+        return
+    else:
+        print("\nThe area is %s" % check_int_float(answer))
 
 def triangle():
     while True:
@@ -65,10 +68,7 @@ def question():
             pass
         else:
             result = the_calculator(shape)
-            if result == None:
-                break
-            else:
-                return result
+            return result
 
 def the_calculator(shape):
     lamtriangle = lambda h, b: (h * b) / 2
@@ -88,7 +88,11 @@ def the_calculator(shape):
         case 4:
             r = circle()
             return lamcircle(r)
+        case _:
+            return
 
 def check_int_float(n):
     return int(n) if (n - int(n)) == 0 else n
 
+if __name__ == "__main__":
+    main()
